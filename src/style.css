@@ -42,7 +42,6 @@ body,
 
 .input {
   border: none;
-  text-align: center;
   margin-left: -5px;
   padding: 10px;
 }
@@ -75,13 +74,13 @@ body,
   text-align: center;
   background-color: gainsboro;
   border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px
+  border-bottom-right-radius: 10px;
 }
 
 .clear-all {
   border: none;
   padding: 10px;
-  background-color: gainsboro;;
+  background-color: gainsboro;
 }
 
 .btn-refresh:hover {

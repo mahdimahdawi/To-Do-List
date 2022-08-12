@@ -1,8 +1,8 @@
 import { forEach } from "lodash";
 
-import dots from '../assets/images/dots.png'
-import save from '../assets/images/save.jpeg';
-import removeIcon from '../assets/images/delete.png';
+import dots from '../assets/images/dots.png';
+// import save from '../assets/images/save.jpeg';
+// import removeIcon from '../assets/images/delete.png';
 
 class DoList {
   constructor(description, completed, index) {
@@ -25,11 +25,11 @@ const storeTask = (e) => {
     localStorage.setItem('dolist', JSON.stringify(existTask));
     document.querySelector('.input').value = '';
   }
-}
+};
 
 const displayTask = () => {
   const existTask = JSON.parse(localStorage.getItem('dolist'));
-  if (existTask !== null && existTask.length > 0 ) {
+  if (existTask !== null && existTask.length > 0) {
     const taskList = document.querySelector('.todo-list');
     taskList.innerHTML = '';
 
@@ -68,15 +68,14 @@ const displayTask = () => {
       order.appendChild(checkbox);
       order.appendChild(input);
       order.appendChild(editIcon);
-
     });
-    document.querySelectorAll('.btn-edit').forEach((e) => {
-      e.addEventListener('click', editTask);
-    });
+    // document.querySelectorAll('.btn-edit').forEach((e) => {
+    //   e.addEventListener('click');
+    // });
   } else {
     document.querySelector('todo-list').innerHTML = '';
   }
-}
+};
 
 // const editTask = (e) => {
 //   const editItem = e.target;
@@ -113,12 +112,12 @@ const displayTask = () => {
 //   });
 // }
 
-const removeTask = () => {
+// const removeTask = () => {
 
-}
+// };
 
-const saveTask = () => {
+// const saveTask = () => {
 
-}
+// };
 
 export { storeTask, displayTask };
