@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import 'lodash';
 import './style.css';
 
 import { storeTask, displayTask } from './list.js';

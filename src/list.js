@@ -1,4 +1,4 @@
-import { forEach } from "lodash";
+import 'lodash';
 
 import dots from '../assets/images/dots.png';
 // import save from '../assets/images/save.jpeg';
