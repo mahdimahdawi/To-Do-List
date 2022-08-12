@@ -1,12 +1,8 @@
-import _ from 'lodash';
+import 'lodash';
+import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+import { storeTask, displayTask } from './list.js';
 
-  // Lodash imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+document.querySelector('.enter').addEventListener('click', storeTask);
+document.querySelector('form').addEventListener('submit', storeTask);
+window.addEventListener('load', displayTask);
