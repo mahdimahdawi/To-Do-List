@@ -1,6 +1,7 @@
 import 'lodash';
 
 import dots from '../assets/images/dots.png';
+
 class DoList {
   constructor(description, completed, index) {
     this.description = description;
