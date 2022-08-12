@@ -1,0 +1,93 @@
+*,
+html,
+body,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-body {
+  margin-top: 10%;
+  margin-left: 40%;
+  max-width: 400px;
+  border: 1px solid black;
+  padding: 50px 50px 10px 50px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 20px 1px;
+}
+
+.todo-title {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-refresh {
+  border: none;
+}
+
+.input-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  border: none;
+  text-align: center;
+  margin-left: -5px;
+  padding: 10px;
+}
+
+.do-activity {
+  border: none;
+  padding: 5px 10px;
+}
+
+.btn-edit {
+  float: right;
+}
+
+.checkbox {
+  padding-top: 5px;
+}
+
+.activity-list {
+  list-style-type: none;
+  padding: 5px;
+}
+
+.btn-submit {
+  border: none;
+  background-color: white;
+  padding-right: 2px;
+}
+
+.clear-list {
+  text-align: center;
+  background-color: gainsboro;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px
+}
+
+.clear-all {
+  border: none;
+  padding: 10px;
+  background-color: gainsboro;;
+}
+
+.btn-refresh:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+.clear-all:hover {
+  font-size: large;
+}
