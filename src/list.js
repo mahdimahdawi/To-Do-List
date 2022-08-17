@@ -1,32 +1,15 @@
-
+import 'lodash';
 import dots from '../assets/images/dots.png';
 import removeIcon from '../assets/images/delete.png';
-import { get } from 'lodash';
 
-class DoList {  
+class DoList {
   constructor(description, completed, index) {
     this.description = description;
     this.completed = completed;
     this.index = index;
   }
 }
-    // Store Data in Local Storage
-const storeTask = (e) => {
-  e.preventDefault();
-  let existTask = JSON.parse(localStorage.getItem('dolist'));
-  existTask = existTask === null ? [] : existTask;
-
-  const inputList = document.querySelector('.input').value;
-  const newTask = new DoList(inputList, false, existTask.length + 1);
-
-  if (inputList !== '') {
-    existTask.push(newTask);
-    localStorage.setItem('dolist', JSON.stringify(existTask));
-    document.querySelector('.input').value = '';
-    displayTask();
-  }
-};
-    // Fetech Data from local Storage and dispaly them
+// Fetech Data from local Storage and dispaly them
 const displayTask = () => {
   const existTask = JSON.parse(localStorage.getItem('dolist'));
   if (existTask !== null && existTask.length > 0) {
@@ -63,13 +46,13 @@ const displayTask = () => {
       order.appendChild(editIcon);
     });
     document.querySelectorAll('.btn-edit').forEach((e) => {
-      e.addEventListener('click',editTask);
+      e.addEventListener('click', editTask);
     });
   } else {
     document.querySelector('todo-list').innerHTML = '';
   }
 };
-    // Edit function
+// Edit function
 const editTask = (e) => {
   const editItem = e.target;
   const editBtn = document.getElementById(`${editItem.id}`);
@@ -87,7 +70,7 @@ const editTask = (e) => {
   taskList.classList.add('active');
   const singleTask = document.querySelector(`#task-${editItem.id}`);
   const removeBtn = document.createElement('img');
-  removeBtn.classList.add(`remove-${editItem.id}`)
+  removeBtn.classList.add(`remove-${editItem.id}`);
   removeBtn.id = 'remove-btn';
   removeBtn.setAttribute('src', removeIcon);
   removeBtn.style.marginLeft = '80px';
@@ -98,19 +81,8 @@ const editTask = (e) => {
   document.querySelectorAll(`#activity-${editItem.id}`).forEach((e) => {
     e.addEventListener('change', UpdateTask);
   })
-}
-    // Update Function
-const UpdateTask = (e) => {
-  const taskid = e.target.id;
-  const itemId = taskid.split('-');
-  const id = parseInt(itemId[1], 10);
-  let getData = JSON.parse(localStorage.getItem('dolist'));
-  const input = document.querySelector(`#activity-${id}`);
-  getData[id].description = input.value;
-  localStorage.setItem('dolist', JSON.stringify(getData));
-  displayTask();
-}
-    // Remove Function
+};
+// Remove Function
 const removeTask = (e) => {
   const itemClass = e.target.className;
   const itemId = itemClass.split('-');
@@ -121,6 +93,32 @@ const removeTask = (e) => {
   getData.forEach((task, i) => task.index = i + 1);
   localStorage.setItem('dolist', JSON.stringify(getData));
   displayTask();
-}
+};
+// Update Function
+const UpdateTask = (e) => {
+  const taskid = e.target.id;
+  const itemId = taskid.split('-');
+  const id = parseInt(itemId[1], 10);
+  const getData = JSON.parse(localStorage.getItem('dolist'));
+  const input = document.querySelector(`#activity-${id}`);
+  getData[id].description = input.value;
+  localStorage.setItem('dolist', JSON.stringify(getData));
+  displayTask();
+};
+// Store Data in Local Storage
+const storeTask = (e) => {
+  e.preventDefault();
+  let existTask = JSON.parse(localStorage.getItem('dolist'));
+  existTask = existTask === null ? [] : existTask;
 
+  const inputList = document.querySelector('.input').value;
+  const newTask = new DoList(inputList, false, existTask.length + 1);
+
+  if (inputList !== '') {
+    existTask.push(newTask);
+    localStorage.setItem('dolist', JSON.stringify(existTask));
+    document.querySelector('.input').value = '';
+    displayTask();
+  }
+};
 export { storeTask, displayTask };
