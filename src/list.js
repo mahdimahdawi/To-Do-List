@@ -9,6 +9,59 @@ class DoList {
     this.index = index;
   }
 }
+// Remove Function
+function removeTask(e) {
+  const itemClass = e.target.className;
+  const itemId = itemClass.split('-');
+  const id = parseInt(itemId[1], 10);
+  let getData = JSON.parse(localStorage.getItem('dolist'));
+  getData = getData.filter((task, index) => index !== id);
+  e.target.parentNode.remove();
+  getData.forEach((task, i) => task.index = i + 1);
+  localStorage.setItem('dolist', JSON.stringify(getData));
+  displayTask();
+};
+// Update Function
+const UpdateTask = (e) => {
+  const taskid = e.target.id;
+  const itemId = taskid.split('-');
+  const id = parseInt(itemId[1], 10);
+  const getData = JSON.parse(localStorage.getItem('dolist'));
+  const input = document.querySelector(`#activity-${id}`);
+  getData[id].description = input.value;
+  localStorage.setItem('dolist', JSON.stringify(getData));
+  displayTask();
+};
+// Edit function
+const editTask = (e) => {
+  const editItem = e.target;
+  const editBtn = document.getElementById(`${editItem.id}`);
+  const itemId = document.querySelector(`#activity-${editItem.id}`);
+  itemId.classList.add(`activity-${editItem.id}`);
+  itemId.id = `activity-${editItem.id}`;
+  itemId.removeAttribute('readonly');
+  itemId.focus();
+  editBtn.style.display = 'none';
+  itemId.style.outlineColor = 'white';
+  itemId.style.backgroundColor = 'rgb(235, 235, 235)';
+  const inputFeild = document.querySelector('.item');
+  inputFeild.style.border = 'none';
+  const taskList = document.querySelector(`#tasks-${editItem.id}`);
+  taskList.classList.add('active');
+  const singleTask = document.querySelector(`#task-${editItem.id}`);
+  const removeBtn = document.createElement('img');
+  removeBtn.classList.add(`remove-${editItem.id}`);
+  removeBtn.id = 'remove-btn';
+  removeBtn.setAttribute('src', removeIcon);
+  removeBtn.style.marginLeft = '80px';
+  singleTask.appendChild(removeBtn);
+  document.querySelectorAll(`.remove-${editItem.id}`).forEach((e) => {
+    e.addEventListener('click', removeTask);
+  });
+  document.querySelectorAll(`#activity-${editItem.id}`).forEach((e) => {
+    e.addEventListener('change', UpdateTask);
+  });
+};
 // Fetech Data from local Storage and dispaly them
 const displayTask = () => {
   const existTask = JSON.parse(localStorage.getItem('dolist'));
@@ -52,59 +105,8 @@ const displayTask = () => {
     document.querySelector('todo-list').innerHTML = '';
   }
 };
-// Edit function
-const editTask = (e) => {
-  const editItem = e.target;
-  const editBtn = document.getElementById(`${editItem.id}`);
-  const itemId = document.querySelector(`#activity-${editItem.id}`);
-  itemId.classList.add(`activity-${editItem.id}`);
-  itemId.id = `activity-${editItem.id}`;
-  itemId.removeAttribute('readonly');
-  itemId.focus();
-  editBtn.style.display = 'none';
-  itemId.style.outlineColor = 'white';
-  itemId.style.backgroundColor = 'rgb(235, 235, 235)';
-  const inputFeild = document.querySelector('.item');
-  inputFeild.style.border = 'none';
-  const taskList = document.querySelector(`#tasks-${editItem.id}`);
-  taskList.classList.add('active');
-  const singleTask = document.querySelector(`#task-${editItem.id}`);
-  const removeBtn = document.createElement('img');
-  removeBtn.classList.add(`remove-${editItem.id}`);
-  removeBtn.id = 'remove-btn';
-  removeBtn.setAttribute('src', removeIcon);
-  removeBtn.style.marginLeft = '80px';
-  singleTask.appendChild(removeBtn);
-  document.querySelectorAll(`.remove-${editItem.id}`).forEach((e) => {
-    e.addEventListener('click', removeTask);
-  });
-  document.querySelectorAll(`#activity-${editItem.id}`).forEach((e) => {
-    e.addEventListener('change', UpdateTask);
-  })
-};
-// Remove Function
-const removeTask = (e) => {
-  const itemClass = e.target.className;
-  const itemId = itemClass.split('-');
-  const id = parseInt(itemId[1], 10);
-  let getData = JSON.parse(localStorage.getItem('dolist'));
-  getData = getData.filter((task, index) => index !== id);
-  e.target.parentNode.remove();
-  getData.forEach((task, i) => task.index = i + 1);
-  localStorage.setItem('dolist', JSON.stringify(getData));
-  displayTask();
-};
-// Update Function
-const UpdateTask = (e) => {
-  const taskid = e.target.id;
-  const itemId = taskid.split('-');
-  const id = parseInt(itemId[1], 10);
-  const getData = JSON.parse(localStorage.getItem('dolist'));
-  const input = document.querySelector(`#activity-${id}`);
-  getData[id].description = input.value;
-  localStorage.setItem('dolist', JSON.stringify(getData));
-  displayTask();
-};
+
+
 // Store Data in Local Storage
 const storeTask = (e) => {
   e.preventDefault();
