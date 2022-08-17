@@ -1,3 +1,4 @@
+/* eslint-disable */
 import 'lodash';
 import dots from '../assets/images/dots.png';
 import removeIcon from '../assets/images/delete.png';
