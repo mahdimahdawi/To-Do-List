@@ -42,21 +42,31 @@ body,
 
 .input {
   border: none;
-  margin-left: -5px;
+  margin-left: 5px;
+  width: 250px;
+  height: 40px;
   padding: 10px;
+  outline-color: white;
 }
 
-.do-activity {
+.item {
   border: none;
   padding: 5px 10px;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  width: 150px;
+  height: 40px;
+  margin-left: 10px;
+  outline-color: white;
 }
 
 .btn-edit {
   float: right;
+  margin-top: 10px;
 }
 
 .checkbox {
-  padding-top: 5px;
+  margin-top: 20px;
 }
 
 .activity-list {
@@ -89,4 +99,21 @@ body,
 
 .clear-all:hover {
   font-size: large;
+}
+
+.remove-btn {
+  margin-left: 60px;
+  transition: 0.5s ease-in-out;
+}
+
+.enter:hover {
+  transform: scale(1.1);
+}
+
+.btn-edit:hover {
+  transform: scale(1.1);
+}
+
+#remove-btn:hover {
+  transform: scale(1.1);
 }
