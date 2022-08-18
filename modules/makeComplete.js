@@ -1,4 +1,4 @@
- /* eslint-disable */
+/* eslint-disable */
  export const MakeComplete = (e) => {
   const eventId = e.target.id;
   const findId = eventId.split('-');
