@@ -60,12 +60,16 @@ body,
   outline-color: white;
 }
 
+/* .lineThrow {
+  text-decoration: line-through;
+} */
+
 .btn-edit {
   float: right;
   margin-top: 10px;
 }
 
-.checkbox {
+.check-box {
   margin-top: 20px;
 }
 
