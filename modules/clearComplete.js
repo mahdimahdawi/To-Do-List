@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { displayTask } from "../src/list.js";
 
 export const ClearCompleted = () => {
