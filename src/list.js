@@ -2,9 +2,10 @@
 import 'lodash';
 import dots from '../assets/images/dots.png';
 import removeIcon from '../assets/images/delete.png';
+import { MakeComplete } from '../modules/makeComplete.js';
 
 class DoList {
-  constructor(description, completed, index) {
+  constructor(description, completed = false, index) {
     this.description = description;
     this.completed = completed;
     this.index = index;
@@ -42,6 +43,8 @@ const editTask = (e) => {
   itemId.id = `activity-${editItem.id}`;
   itemId.removeAttribute('readonly');
   itemId.focus();
+  const bgColor = document.querySelector(`#task-${e.target.id}`)
+  bgColor.style.backgroundColor = 'rgb(235, 235, 235)';
   editBtn.style.display = 'none';
   itemId.style.outlineColor = 'white';
   itemId.style.backgroundColor = 'rgb(235, 235, 235)';
@@ -69,6 +72,7 @@ const displayTask = () => {
   if (existTask !== null && existTask.length > 0) {
     const taskList = document.querySelector('.todo-list');
     taskList.innerHTML = '';
+
     existTask.forEach((task, index) => {
       const unorder = document.createElement('ul');
       const order = document.createElement('li');
@@ -78,16 +82,21 @@ const displayTask = () => {
       unorder.id = `tasks-${index}`;
       order.classList.add('task');
       order.id = `task-${index}`;
+
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
-      checkbox.classList.add('checkbox');
+      checkbox.classList.add('check-box');
+      checkbox.id = `box-${index}`;
       const input = document.createElement('input');
+      if (task.completed) {
+        checkbox.checked = true;
+        input.style.textDecorationLine = 'line-through';
+      }
       input.type = 'text';
       input.classList.add('item');
       input.id = `activity-${index}`;
       input.setAttribute('readonly', true);
       input.value = `${task.description}`;
-      input.innerHTML = task.description;
       const editIcon = document.createElement('img');
       editIcon.setAttribute('src', dots);
       editIcon.classList.add('btn-edit');
@@ -102,11 +111,11 @@ const displayTask = () => {
     document.querySelectorAll('.btn-edit').forEach((e) => {
       e.addEventListener('click', editTask);
     });
-  } else {
-    document.querySelector('todo-list').innerHTML = '';
-  }
+    document.querySelectorAll('.check-box').forEach((e) => {
+      e.addEventListener('change', MakeComplete);
+    })
+  } 
 };
-
 
 // Store Data in Local Storage
 const storeTask = (e) => {
