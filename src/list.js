@@ -82,18 +82,21 @@ const displayTask = () => {
       unorder.id = `tasks-${index}`;
       order.classList.add('task');
       order.id = `task-${index}`;
+
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.classList.add('check-box');
       checkbox.id = `box-${index}`;
-      checkbox.onclick = MakeComplete;
       const input = document.createElement('input');
+      if (task.completed) {
+        checkbox.checked = true;
+        input.style.textDecorationLine = 'line-through';
+      }
       input.type = 'text';
       input.classList.add('item');
       input.id = `activity-${index}`;
       input.setAttribute('readonly', true);
       input.value = `${task.description}`;
-      input.innerHTML = task.description;
       const editIcon = document.createElement('img');
       editIcon.setAttribute('src', dots);
       editIcon.classList.add('btn-edit');
@@ -112,10 +115,7 @@ const displayTask = () => {
       e.addEventListener('change', MakeComplete);
     })
   } 
-  // document.querySelector('todo-list').innerHTML = '';
-  
 };
-
 
 // Store Data in Local Storage
 const storeTask = (e) => {
