@@ -1,7 +1,6 @@
 import 'lodash';
 import './style.css';
 import { ClearCompleted } from '../modules/clearComplete.js';
-import { MakeComplete } from '../modules/makeComplete.js';
 import { displayTask, storeTask } from './list.js';
 
 document.querySelector('.enter').addEventListener('click', storeTask);

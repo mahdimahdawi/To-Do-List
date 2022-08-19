@@ -1,4 +1,4 @@
-import { after } from "lodash";
+import 'lodash';
 
 /* eslint-disable */
 export const MakeComplete = (e) => {
