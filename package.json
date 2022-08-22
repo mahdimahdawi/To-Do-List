@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve --open",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "deploy": "master -d dist"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/mahdimahdawi/To-Do-List/issues"
   },
-  "homepage": "https://github.com/mahdimahdawi/To-Do-List#readme",
+  "homepage": "https://github.com/mahdimahdawi/To-Do-List/dist/",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
