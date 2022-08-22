@@ -114,7 +114,7 @@ const displayTask = () => {
     document.querySelectorAll('.check-box').forEach((e) => {
       e.addEventListener('change', MakeComplete);
     })
-  } 
+  }
 };
 
 // Store Data in Local Storage
@@ -134,9 +134,12 @@ const storeTask = (e) => {
   }
 };
 
-const enterBtn = document.querySelector('.enter');
-enterBtn.addEventListener('click', storeTask);
-const formBtn = document.querySelector('form');
-formBtn.addEventListener('submit', storeTask);
+const inputValue = document.querySelector('.input');
+if (inputValue.value !== null) {
+  const enterBtn = document.querySelector('.enter');
+  enterBtn.addEventListener('click', storeTask);
+  const formBtn = document.querySelector('form');
+  formBtn.addEventListener('submit', storeTask);
+}
 
 export { storeTask, displayTask };
