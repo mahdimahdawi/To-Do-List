@@ -134,12 +134,12 @@ const storeTask = (e) => {
   }
 };
 
-const inputValue = document.querySelector('.input');
-if (inputValue.value !== null) {
-  const enterBtn = document.querySelector('.enter');
-  enterBtn.addEventListener('click', storeTask);
-  const formBtn = document.querySelector('form');
-  formBtn.addEventListener('submit', storeTask);
-}
+// const inputValue = document.querySelector('.input');
+// if (inputValue.value !== null) {
+//   const enterBtn = document.querySelector('.enter');
+//   enterBtn.addEventListener('click', storeTask);
+//   const formBtn = document.querySelector('form');
+//   formBtn.addEventListener('submit', storeTask);
+// }
 
 export { storeTask, displayTask };
