@@ -9,5 +9,7 @@ const enterBtn = document.querySelector('.enter');
 enterBtn && enterBtn.addEventListener('click', storeTask);
 const formBtn = document.querySelector('form');
 enterBtn && formBtn.addEventListener('submit', storeTask);
-document.querySelector('.clear-all').addEventListener('click', ClearCompleted);
+
+const clearBtn = document.querySelector('.clear-all');
+clearBtn && clearBtn.addEventListener('click', ClearCompleted);
 window.addEventListener('load', displayTask);
