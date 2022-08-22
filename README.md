@@ -25,7 +25,7 @@ To get a local copy up and running follow these simple example steps.
 
 
 
-👤 **Author2**
+👤 **Author**
 
 - GitHub: [@mahdimahdawi](https://github.com/mahdimahdawi)
 - LinkedIn: [Mahdi Mahdawi](https://linkedin.com/in/linkedinhandle/feed)
