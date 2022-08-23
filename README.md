@@ -11,7 +11,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://mahdimahdawi.github.io/To-Do-List/dist/)
+[Online Link](https://mahdimahdawi.github.io/To-Do-List/)
 
 
 ## Getting Started
