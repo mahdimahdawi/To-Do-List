@@ -4,9 +4,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <script src="https://use.fontawesome.com/3d717ebef2.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <title>To Do List</title>
+<script defer src="runtime.js"></script><script defer src="main.js"></script></head>
 <body>
-  <script src="bundle.js" type="module" defer></script>
+  <main class="container">
+    <div class="page-body">
+      <header class="header">
+        <h3 class="todo-title">Today's To Do</h3>
+        <button type="button" class="btn-refresh"><i class="fa fa-refresh" id="refresh" aria-hidden="true"></i></button>
+      </header>
+      <hr>
+
+      <form class="input-form">
+        <input type="text" id="enter-task" name="enter-task" class="input" placeholder="Add Your Task .... " required/>
+        <button type="submit" class="btn-submit"><span class="material-icons enter">keyboard_return</span></button>
+      </form>
+      <hr>
+      <div class="todo-list">
+        <!-- The Data load dynamically vis JavaScript -->
+      </div>
+
+      <div class="clear-list">
+        <button type="button" class="clear-all">Clear All Completed</button>
+      </div>
+    </div>
+  </main>
+  <script src="bundle.js" type="module" defer="defer"></script>
 </body>
 </html>
