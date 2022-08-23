@@ -9,7 +9,7 @@
     "build": "webpack",
     "start": "webpack serve --open",
     "dev": "webpack serve",
-    "deploy": "master -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "webpack-dev-server": "^4.10.0"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21"
   }
 }
